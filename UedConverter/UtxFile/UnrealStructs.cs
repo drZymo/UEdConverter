@@ -5,7 +5,6 @@ namespace UedConverter.UtxFile;
 public interface IUnrealStruct
 {
     string GetText();
-    CustomTreeElement CreateCTE();
 }
 
 internal class UnrealStructs
@@ -70,17 +69,5 @@ internal class UnrealStructs
             return $"ADrop({Enum.GetName(Type)})";
         }
 
-        public CustomTreeElement CreateCTE()
-        {
-            return new CustomTreeElement("Value", GetText(),
-                new CustomTreeElement("Type", $"{(byte)Type} {Enum.GetName(Type)}"),
-                CustomTreeElement.FromValue(X),
-                CustomTreeElement.FromValue(Y),
-                CustomTreeElement.FromValue(SpeedX),
-                CustomTreeElement.FromValue(SpeedY),
-                CustomTreeElement.FromValue(ValueC),
-                CustomTreeElement.FromValue(ValueD)
-                );
-        }
     }
 }

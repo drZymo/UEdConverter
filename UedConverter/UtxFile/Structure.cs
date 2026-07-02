@@ -123,7 +123,7 @@ public class Header
     public RawData? RawData { get; set; }
 }
 
-public class UProperties: List<UProperty>
+public class UProperties : List<UProperty>
 {
     public UProperty? Find(string propertyName) => this.Find(p => p.Name == propertyName);
     public T? GetRef<T>(string propertyName) where T : class
@@ -245,11 +245,6 @@ public struct UColor(byte r, byte g, byte b, byte a = 255)
     {
         return $"#{r:X2}{g:X2}{b:X2}{a:X2}";
     }
-
-    public System.Windows.Media.Color? ToColor()
-    {
-        return System.Windows.Media.Color.FromRgb(r, g, b);
-    }
 }
 
 public class UsedClass
@@ -303,7 +298,7 @@ public class DebugInfo
     public int TextureCounter = 0;
     public int PaletteCounter = 0;
 
-    public string GetContentTableText() => 
+    public string GetContentTableText() =>
         $"Found:" +
         $"\nFonts:{FontCounter}" +
         $"\nProceduralTextures:{ProceduralTextureCounter}" +

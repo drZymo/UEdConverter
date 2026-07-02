@@ -1,6 +1,5 @@
 using System.IO;
 using System.Text.RegularExpressions;
-using System.Windows;
 
 namespace UedConverter.UtxFile;
 
@@ -36,7 +35,8 @@ internal static partial class TextureSizeDictionary
 
         if (!IsAvailable())
         {
-            MessageBox.Show("Cannot find texture data file. All Textures will be threated as 64x64", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+            Console.Error.WriteLine("Cannot find texture data file. All Textures will be threated as 64x64", "Warning");
+            Environment.Exit(1);
         }
         var entries = new Dictionary<string, USize>();
         using (var f = File.OpenText(filePath))

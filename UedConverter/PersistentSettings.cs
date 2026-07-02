@@ -1,5 +1,4 @@
 ﻿using System.IO;
-using System.Windows;
 using UedConverter.Converter;
 
 namespace UedConverter
@@ -75,7 +74,8 @@ namespace UedConverter
             }
             catch (IOException ex)
             {
-                MessageBox.Show(ex.Message, "Error while saving settings", MessageBoxButton.OK, MessageBoxImage.Error);
+                Console.Error.WriteLine($"Error while saving settings: {ex.Message}");
+                Environment.Exit(1);
             }
         }
 
