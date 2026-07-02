@@ -43,7 +43,7 @@ internal static partial class TextureSizeDictionary
         {
             while (!f.EndOfStream)
             {
-                var text = f.ReadLine();
+                var text = f.ReadLine() ?? string.Empty;
                 var rMatch = dimensionToNameRegex.Match(text);
                 if (rMatch.Success && rMatch.Groups.Count == 4)
                 {
